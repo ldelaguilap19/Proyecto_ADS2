@@ -29,7 +29,7 @@
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_fecha">Fecha Nacimiento</label>
-				<input class="form-control" type="text" id="id_fecha" name="fecha" placeholder="Ingrese la fecha">
+				<input class="form-control" type="date" id="id_fecha" name="fecha" placeholder="Ingrese la fecha">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_correo">Correo</label>
@@ -58,7 +58,51 @@ $(document).ready(function() {
         },
         
         fields:{
-        	
+        	nombre : {  
+        		selector: "#id_nombre",
+        		validators : {
+        			notEmpty: {
+                        message: 'El nombre es requerido'
+                    },
+                    stringLength: {
+                        min: 3,
+                        max: 30,
+                        message: 'El nombre tiene de 3 a 30 caracteres'
+                    },
+        		}
+        	},
+        	apellido : {
+        		selector: "#id_apellido",
+        		validators : {
+        			notEmpty: {
+                        message: 'El apellido es requerido'
+                    },
+                    stringLength: {
+                        min: 4,
+                        max: 40,
+                        message: 'El apellido tiene de 4 a 40 caracteres'
+                    },
+        		}
+        	},
+        	fechaNacimiento : {
+        		selector: "#id_fecha",
+        		validators : {
+        			notEmpty: {
+                        message: 'La fecha de nacimiento es requerido'
+                    }
+        		}
+        	},
+        	correo : {
+        		selector: "#id_correo",
+        		validators : {
+        			notEmpty: {
+                        message: 'El correo es requerido'
+                    },
+                    emailAddress: {
+                        message: 'El correo no tiene formato'
+                    }
+        		}
+        	},        	
         }
   
     });

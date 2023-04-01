@@ -68,7 +68,66 @@ $(document).ready(function() {
             validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
-
+        	nombre : {  
+        		selector: "#id_nombre",
+        		validators : {
+        			notEmpty: {
+                        message: 'El nombre es requerido'
+                    },
+                    stringLength: {
+                        min: 3,
+                        max: 30,
+                        message: 'El nombre tiene de 3 a 30 caracteres'
+                    },
+        		}
+        	},
+        	alias : {  
+        		selector: "#id_alias",
+        		validators : {
+        			notEmpty: {
+                        message: 'El alias es requerido'
+                    },
+                    stringLength: {
+                        min: 3,
+                        max: 30,
+                        message: 'El alias tiene de 3 a 30 caracteres'
+                    },
+        		}
+        	},   
+        	pais : {  
+        		selector: "#id_pais",
+        		validators : {
+        			notEmpty: {
+                        message: 'El país es requerido'
+                    },
+        		}
+        	},   
+        	juego : {  
+        		selector: "#id_juego",
+        		validators : {
+        			notEmpty: {
+                        message: 'El juego es requerido'
+                    },
+        		}
+        	},  
+        	experiencia : {  
+        		selector: "#id_experiencia",
+        		validators : {
+        			notEmpty: {
+                        message: 'La experiencia es requerido'
+                    },
+                    lessThan: {
+                        value: 10,
+                        inclusive: true,
+                        message: 'La experiencia es menor o igual a 10'
+                    },
+                    greaterThan: {
+                        value: 0,
+                        inclusive: true,
+                        message: 'La experiencia es mayor o igual a 0'
+                    }
+        		}
+        	},  
         }   
     });
 
