@@ -17,15 +17,15 @@
 <div class="container">
 <h1>Registra Alumno</h1>
 
-	<form action="insertaAlumno" id="id_form"> 
+	<form action="registraAlumno" id="id_form"> 
 			<input type="hidden" name="metodo" value="registra">	
 			<div class="form-group">
 				<label class="control-label" for="id_nombre">Nombres</label>
 				<input class="form-control" type="text" id="id_nombre" name="nombre" placeholder="Ingrese el nombre">
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="id_apellido">Apellidos</label>
-				<input class="form-control" type="text" id="id_apellido" name="apellido" placeholder="Ingrese el apellido">
+				<label class="control-label" for="id_dni">DNI</label>
+				<input class="form-control" type="text" id="id_dni" name="dni" placeholder="Ingrese el dni" maxlength="8">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="id_fecha">Fecha Nacimiento</label>
@@ -71,16 +71,15 @@ $(document).ready(function() {
                     },
         		}
         	},
-        	apellido : {
-        		selector: "#id_apellido",
+        	dni : {
+        		selector: "#id_dni",
         		validators : {
         			notEmpty: {
-                        message: 'El apellido es requerido'
+                        message: 'El dni es requerido'
                     },
-                    stringLength: {
-                        min: 4,
-                        max: 40,
-                        message: 'El apellido tiene de 4 a 40 caracteres'
+                    regexp: {
+                        regexp: /^[0-9]{8}$/,
+                        message: 'El dni tiene 8 dígitos'
                     },
         		}
         	},
