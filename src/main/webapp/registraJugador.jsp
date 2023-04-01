@@ -16,7 +16,7 @@
 <div class="container">
 <h1>Registra Jugador</h1>
 
-	<form action="insertaJugador" id="id_form"> 
+	<form action="registraJugador" id="id_form"> 
 			<input type="hidden" name="metodo" value="registra">	
 			<div class="form-group">
 				<label class="control-label" for="id_nombre">Nombres</label>
