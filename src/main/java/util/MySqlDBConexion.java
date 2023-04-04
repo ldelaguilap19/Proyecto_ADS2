@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 public class MySqlDBConexion {
 
 	
-	//permite el acceso los parámetros del archivo properties
+	//permite el acceso los parametros del archivo properties
 		private static ResourceBundle rb = 	ResourceBundle.getBundle("database");
 		
 		//Accede a las clases del mysqlconnectorXXXX.jar

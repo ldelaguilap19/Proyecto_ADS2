@@ -3,7 +3,8 @@ package model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.logging.Logger;
-import entidad.Alumno;
+
+import entity.Alumno;
 import util.MySqlDBConexion;
 
 public class AlumnoModel {

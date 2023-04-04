@@ -1,11 +1,23 @@
 package util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class FechaUtil {
 
+	public static Date toFecha(String fecha) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date fec = null;
+		try {
+			fec = new Date(sdf.parse(fecha).getTime());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return fec;
+	}
+	
 	public static String getFechaActualYYYYMMdd() {
 		Date fechaActual = new Date(); // Fecha Actual o fecha del sistema
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //Brinda formato a la fecha
@@ -63,7 +75,7 @@ public class FechaUtil {
 			Date dateUno = sdf.parse(fecUno);
 			Date dateDos = sdf.parse(fecDos);
 			
-			//Aumentar la fecha 1 en seis meses (180 días)
+			//Aumentar la fecha 1 en seis meses (180 dï¿½as)
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(dateUno);
 			int diasAnio = calendar.get(Calendar.DAY_OF_YEAR);
