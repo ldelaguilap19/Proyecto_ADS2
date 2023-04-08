@@ -101,7 +101,33 @@ $(document).ready(function() {
 
 
 <script type="text/javascript">
+	$("#id_btn_registra").click(function(){
+		var validator = $('#id_form').data('bootstrapValidator');
+	    validator.validate();
+		
+	    if (validator.isValid()) {
+	        $.ajax({
+	          type: "POST",
+	          url: "registraCliente", 
+	          data: $('#id_form').serialize(),
+	          success: function(data){
+	        	  mostrarMensaje(data.mensaje);
+	        	  limpiarFormulario();
+	        	  validator.resetForm();
+	          },
+	          error: function(){
+	        	  mostrarMensaje(MSG_ERROR);
+	          }
+	        });
+	        
+	    }
+	});
 
+	$.getJSON("cargaCategoria", {}, function (data){
+		$.each(data, function(index, item){
+			$("#id_categoria").append("<option value=" +  item.idCategoria +" >" +  item.nombre+ "</option>");
+		});	
+	});		
 
 	
 	function limpiarFormulario(){	

@@ -21,8 +21,8 @@
 
 		<form id="idForm" action="">
 			<div class="form-group">
-				<label class="control-label" for="id_categoria"> Categoría </label> <select
-					class="form-control" id="id_categoria" name="">
+				<label class="control-label" for="id_categoria"> Categoría </label> 
+				<select	class="form-control" id="id_categoria" name="">
 					<option value=" ">[Seleccione]</option>
 				</select>
 			</div>
@@ -30,7 +30,11 @@
 	</div>
 
 	<script type="text/javascript">
-		
+		$.getJSON("cargaCategoria", {}, function (data){
+			$.each(data, function(index, item){
+				$("#id_categoria").append("<option value=" +  item.idCategoria +" >" +  item.nombre+ "</option>");
+			});	
+		});			
 	</script>
 
 
