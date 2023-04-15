@@ -1,4 +1,4 @@
-package model;
+package dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,9 +10,9 @@ import java.util.logging.Logger;
 import entity.Categoria;
 import util.MySqlDBConexion;
 
-public class CategoriaModel {
+public class MySqlCategoriaDAO {
 
-	private static Logger log = Logger.getLogger(CategoriaModel.class.getName());
+	private static Logger log = Logger.getLogger(MySqlCategoriaDAO.class.getName());
 	
 	public List<Categoria> listaCategoria() {
 		List<Categoria> lista = new ArrayList<Categoria>();

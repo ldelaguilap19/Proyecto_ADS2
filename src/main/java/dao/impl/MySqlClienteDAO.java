@@ -1,4 +1,4 @@
-package model;
+package dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,10 +7,10 @@ import java.util.logging.Logger;
 import entity.Cliente;
 import util.MySqlDBConexion;
 
-public class ClienteModel {
+public class MySqlClienteDAO {
 
 
-	private static Logger log = Logger.getLogger(ClienteModel.class.getName());
+	private static Logger log = Logger.getLogger(MySqlClienteDAO.class.getName());
 	
 	public int insertaCliente(Cliente  obj) {
 		int salida = -1;
