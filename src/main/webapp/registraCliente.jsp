@@ -36,7 +36,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<button type="button" class="btn btn-primary" id="id_btn_registra">Crea Alumno</button>
+				<button type="button" class="btn btn-primary" id="id_btn_registra">Crea Cliente</button>
 			</div>
 	</form>
 </div>
