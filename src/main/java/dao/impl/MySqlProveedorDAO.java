@@ -25,7 +25,7 @@ public class MySqlProveedorDAO implements ProveedorDAO{
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, obj.getNombre());
 			pstm.setString(2, obj.getDni());
-			pstm.setDate(3, obj.getFechaRegistro());
+			pstm.setTimestamp(3, obj.getFechaRegistro());
 			pstm.setInt(4, obj.getTipo().getIdTipo());
 			
 			log.info(">>>> " + pstm);

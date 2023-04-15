@@ -2,7 +2,7 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +36,7 @@ public class ProveedorServlet extends HttpServlet {
 			Proveedor objProveedor = new Proveedor();
 			objProveedor.setNombre(vnombre);
 			objProveedor.setDni(vdni);
-			objProveedor.setFechaRegistro(new Date(System.currentTimeMillis()));
+			objProveedor.setFechaRegistro(new Timestamp(System.currentTimeMillis()));
 			objProveedor.setTipo(objTipo);
 			
 			Fabrica fabrica = Fabrica.getFabrica(Fabrica.MYSQL);
