@@ -4,10 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.logging.Logger;
 
+import dao.ClienteDAO;
 import entity.Cliente;
 import util.MySqlDBConexion;
 
-public class MySqlClienteDAO {
+public class MySqlClienteDAO implements ClienteDAO{
 
 
 	private static Logger log = Logger.getLogger(MySqlClienteDAO.class.getName());

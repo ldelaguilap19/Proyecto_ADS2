@@ -7,10 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import dao.CategoriaDAO;
 import entity.Categoria;
 import util.MySqlDBConexion;
 
-public class MySqlCategoriaDAO {
+public class MySqlCategoriaDAO implements CategoriaDAO{
 
 	private static Logger log = Logger.getLogger(MySqlCategoriaDAO.class.getName());
 	
