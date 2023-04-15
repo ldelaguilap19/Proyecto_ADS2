@@ -2,6 +2,8 @@ package fabricas;
 
 import dao.CategoriaDAO;
 import dao.ClienteDAO;
+import dao.EmpleadoDAO;
+import dao.PaisDAO;
 import dao.ProveedorDAO;
 import dao.TipoDAO;
 
@@ -15,6 +17,8 @@ public abstract class Fabrica {
 	public abstract ClienteDAO getCliente();
 	public abstract TipoDAO getTipo();
 	public abstract ProveedorDAO getProveedor();
+	public abstract PaisDAO getPais();
+	public abstract EmpleadoDAO getEmpleado();
 	
 	public static Fabrica getFabrica(int tipo){
 		Fabrica salida = null;
