@@ -16,22 +16,28 @@
 <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/dataTables.bootstrap.min.css"/>
 
-<title>Lista Cliente</title>
+<title>Lista Empleado</title>
 </head>
 <body>
 
 
 	<div class="container">
-		<h1>Lista Cliente por nombre</h1>
+		<h1>Lista Empleado por fecha</h1>
 
 		<div class="row" style="margin-top: 5%">
 			<div class="col-md-3">
-				<label class="control-label" for="id_filtro">Nombres</label> 
+				<label class="control-label" for="id_filtro">Fecha Nacimiento</label> 
 			</div>	
-			<div class="col-md-6">
-				<input	class="form-control" type="text" id="id_filtro" placeholder="Ingrese el nombre">
-			</div>	
-			<div class="col-md-3">
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<input	class="form-control" type="date" id="id_fecha_inicio">
+			</div>
+			<div class="col-md-1"></div>	
+			<div class="col-md-2">
+				<input	class="form-control" type="date" id="id_fecha_fin">
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
 				<button type="button" class="btn btn-primary" id="id_btn_filtro">Filtro</button>
 			</div>	
 		</div>
@@ -42,9 +48,11 @@
 				<thead style='background-color:#337ab7; color:white'>
 					<tr>
 						<th>Código</th>
-						<th>Nombre</th>
-						<th>DNI</th>
-						<th>Categoría</th>
+						<th>Nombres</th>
+						<th>Fecha Nacimiento</th>
+						<th>Fecha Registro</th>
+						<th>Estado</th>
+						<th>País</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -59,8 +67,9 @@
 
 	<script type="text/javascript">
 		$("#id_btn_filtro").click(function() {
-			var vfiltro = $("#id_filtro").val();
-			$.getJSON("listaClientePorNombre", {"filtro":vfiltro}, function(data) {
+			var vfecIni = $("#id_fecha_inicio").val();
+			var vfecFin = $("#id_fecha_fin").val();
+			$.getJSON("listaEmpleadoPorFecha", {"fechaInicio":vfecIni,"fechaFin":vfecFin}, function(data) {
 				agregarGrilla(data);
 			});
 		});
@@ -82,10 +91,12 @@
 			            loadingIndicator: true
 			        },
 					columns:[
-						{data: "idCliente",className:'text-center'},
-						{data: "nombre",className:'text-center'},
-						{data: "dni",className:'text-center'},
-						{data: "categoria.nombre",className:'text-center'},
+						{data: "idEmpleado",className:'text-center'},
+						{data: "nombres",className:'text-center'},
+						{data: "fechaNacimiento",className:'text-center'},
+						{data: "fechaRegistro",className:'text-center'},
+						{data: "estado",className:'text-center'},
+						{data: "pais.nombre",className:'text-center'},
 					]                                     
 			    });
 		}

@@ -1,11 +1,16 @@
 package dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 import dao.EmpleadoDAO;
 import entity.Empleado;
+import entity.Pais;
 import util.MySqlDBConexion;
 
 public class MySqlEmpleadoDAO implements EmpleadoDAO{
@@ -42,6 +47,54 @@ public class MySqlEmpleadoDAO implements EmpleadoDAO{
 		}
 		
 		return salida;
+	}
+
+	@Override
+	public List<Empleado> listaPorFecha(Date fecInicio, Date fecFin) {
+		List<Empleado> lista = new ArrayList<Empleado>();
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		try {
+			conn = MySqlDBConexion.getConexion();
+			
+			String sql = "SELECT e.*, p.nombre FROM empleado e "
+					+ "inner join pais p on e.idPais = p.idPais "
+					+ "where fechaNacimiento between ? and ? ";
+			pstm = conn.prepareStatement(sql);
+			pstm.setDate(1, fecInicio);
+			pstm.setDate(2, fecFin);
+			
+			log.info(">>>> " + pstm);
+
+			rs = pstm.executeQuery();
+			Empleado objEmpleado = null;
+			Pais objPais = null;
+			while(rs.next()) {
+				objEmpleado = new Empleado();
+				objEmpleado.setIdEmpleado(rs.getInt(1));
+				objEmpleado.setNombres(rs.getString(2));
+				objEmpleado.setFechaNacimiento(rs.getDate(3));
+				objEmpleado.setEstado(rs.getInt(4));
+				objEmpleado.setFechaRegistro(rs.getTimestamp(5));
+				
+				objPais = new Pais();
+				objPais.setIdPais(rs.getInt(6));
+				objPais.setNombre(rs.getString(7));
+				objEmpleado.setPais(objPais);
+				
+				lista.add(objEmpleado);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstm != null) pstm.close();
+				if (conn != null) conn.close();
+			} catch (Exception e2) {}
+		}
+		
+		return lista;
 	}
 	
 }

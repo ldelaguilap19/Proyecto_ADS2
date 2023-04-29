@@ -17,4 +17,9 @@ public class Empleado {
 	private Timestamp fechaRegistro;
 	private Pais pais;
 	
+	
+	
+	
+	
+	
 }
