@@ -60,7 +60,7 @@
 	<script type="text/javascript">
 		$("#id_btn_filtro").click(function() {
 			var vfiltro = $("#id_filtro").val();
-			$.getJSON("listaClientePorNombre", {"filtro":vfiltro}, function(data) {
+			$.getJSON("", {"filtro":vfiltro}, function(data) {
 				agregarGrilla(data);
 			});
 		});
