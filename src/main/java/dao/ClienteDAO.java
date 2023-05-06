@@ -8,5 +8,7 @@ public interface ClienteDAO {
 
 	public abstract int insertaCliente(Cliente obj);
 	public abstract List<Cliente> listaCliente(String filtro);
-	
+	public abstract int actualizaCliente(Cliente obj);
+	public abstract int eliminaCliente(int idCliente);
+	public abstract Cliente buscaCliente(int idCliente);
 }
