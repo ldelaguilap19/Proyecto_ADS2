@@ -300,6 +300,55 @@
 		          }
 		    });
 		}
+		
+		$(document).ready(function() {
+		    $('#id_form_registra').bootstrapValidator({
+		        message: 'This value is not valid',
+		        feedbackIcons: {
+		            valid: 'glyphicon glyphicon-ok',
+		            invalid: 'glyphicon glyphicon-remove',
+		            validating: 'glyphicon glyphicon-refresh'
+		        },
+		        
+		        fields:{
+		        	nombre : {  
+		        		selector: "#id_reg_nombre",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'El nombre es requerido'
+		                    },
+		                    stringLength: {
+		                        min: 3,
+		                        max: 30,
+		                        message: 'El nombre tiene de 3 a 30 caracteres'
+		                    },
+		        		}
+		        	},
+		        	dni : {
+		        		selector: "#id_reg_dni",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'El dni es requerido'
+		                    },
+		                    regexp: {
+		                        regexp: /^[0-9]{8}$/,
+		                        message: 'El dni tiene 8 dígitos'
+		                    },
+		        		}
+		        	},
+		        	categoria : {
+		        		selector: "#id_reg_categoria",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'La categoría es requerida'
+		                    },
+		        		}
+		        	},        	
+		        }
+		  
+		    });
+
+		});
 	</script>
 
 </body>
