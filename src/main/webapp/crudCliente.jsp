@@ -241,26 +241,16 @@
 			})
 		});
 		
-		$("#id_btn_registra").click(function() {
-	        $.ajax({
-		          type: "POST",
-		          url: "crudCliente", 
-		          data: $('#id_form_registra').serialize(),
-		          success: function(data){
-		        	  mostrarMensaje(data.mensaje);
-		        	  agregarGrilla(data.datos);
-		          },
-		          error: function(){
-		        	  mostrarMensaje(MSG_ERROR);
-		          }
-		    });
-		});
-		
-		function eliminacionFisica(idCliente){
+		function eliminacionFisica(idCliente){	
+			var array = [idCliente];
+			mostrarMensajeConfirmacion(MSG_ELIMINAR, accionEliminacionFisica,null,array);
+		}
+
+		function accionEliminacionFisica(array){
 			 $.ajax({
 		          type: "POST",
 		          url: "crudCliente", 
-		          data: {"metodo":"eFisica", "idCliente":idCliente},
+		          data: {"metodo":"eFisica", "idCliente":array[0]},
 		          success: function(data){
 		        	  mostrarMensaje(data.mensaje);
 		        	  agregarGrilla(data.datos);
@@ -271,19 +261,48 @@
 		    });
 		}
 		
+		$("#id_btn_registra").click(function() {
+			var validator = $('#id_form_registra').data('bootstrapValidator');
+		    validator.validate();
+			
+		    if (validator.isValid()) {
+		        $.ajax({
+			          type: "POST",
+			          url: "crudCliente", 
+			          data: $('#id_form_registra').serialize(),
+			          success: function(data){
+			        	  mostrarMensaje(data.mensaje);
+			        	  agregarGrilla(data.datos);
+			        	  validator.resetForm();
+			        	  $('#id_div_modal_registra').modal("hide");
+			          },
+			          error: function(){
+			        	  mostrarMensaje(MSG_ERROR);
+			          }
+			    });
+		    }
+		});
+		
 		$("#id_btn_actualiza").click(function() {
-	        $.ajax({
-		          type: "POST",
-		          url: "crudCliente", 
-		          data: $('#id_form_actualiza').serialize(),
-		          success: function(data){
-		        	  mostrarMensaje(data.mensaje);
-		        	  agregarGrilla(data.datos);
-		          },
-		          error: function(){
-		        	  mostrarMensaje(MSG_ERROR);
-		          }
-		    });
+			var validator = $('#id_form_actualiza').data('bootstrapValidator');
+		    validator.validate();
+			
+		    if (validator.isValid()) {
+		        $.ajax({
+			          type: "POST",
+			          url: "crudCliente", 
+			          data: $('#id_form_actualiza').serialize(),
+			          success: function(data){
+			        	  mostrarMensaje(data.mensaje);
+			        	  agregarGrilla(data.datos);
+			        	  validator.resetForm();
+			        	  $('#id_div_modal_actualiza').modal("hide");
+			          },
+			          error: function(){
+			        	  mostrarMensaje(MSG_ERROR);
+			          }
+			    });
+		    }
 		});
 		
 		
@@ -345,10 +364,63 @@
 		        		}
 		        	},        	
 		        }
-		  
 		    });
-
 		});
+		
+		$(document).ready(function() {
+		    $('#id_form_actualiza').bootstrapValidator({
+		        message: 'This value is not valid',
+		        feedbackIcons: {
+		            valid: 'glyphicon glyphicon-ok',
+		            invalid: 'glyphicon glyphicon-remove',
+		            validating: 'glyphicon glyphicon-refresh'
+		        },
+		        
+		        fields:{
+		        	nombre : {  
+		        		selector: "#id_act_nombre",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'El nombre es requerido'
+		                    },
+		                    stringLength: {
+		                        min: 3,
+		                        max: 30,
+		                        message: 'El nombre tiene de 3 a 30 caracteres'
+		                    },
+		        		}
+		        	},
+		        	dni : {
+		        		selector: "#id_act_dni",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'El dni es requerido'
+		                    },
+		                    regexp: {
+		                        regexp: /^[0-9]{8}$/,
+		                        message: 'El dni tiene 8 dígitos'
+		                    },
+		        		}
+		        	},
+		        	estado : {
+		        		selector: "#id_act_estado",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'El estado es requerido'
+		                    },
+		        		}
+		        	},     
+		        	categoria : {
+		        		selector: "#id_act_categoria",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'La categoría es requerida'
+		                    },
+		        		}
+		        	},        	
+		        }
+		    });
+		});		
 	</script>
 
 </body>
