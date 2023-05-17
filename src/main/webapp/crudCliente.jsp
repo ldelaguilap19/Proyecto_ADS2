@@ -98,8 +98,8 @@
 		                                    </div> 	 
 		                                    <div class="form-group">
 		                                        <div class="col-lg-12" align="center">
-		                                        	<button type="button" style="width: 80px" id="id_btn_registra" class="btn btn-primary btn-sm">Registrar</button>
-		                                        	<button type="button" style="width: 80px" id="id_btn_reg_cancelar" class="btn btn-primary btn-sm" data-dismiss="modal">Cancelar</button>
+		                                        	<button type="button" style="width: 80px" id="id_btn_registra" class="btn btn-primary btn-sm">Registra</button>
+		                                        	<button type="button" style="width: 80px" id="id_btn_reg_cancelar" class="btn btn-primary btn-sm" data-dismiss="modal">Cancela</button>
 		                                        </div>
 		                                    </div>   
 			                             </div>
@@ -161,8 +161,8 @@
 		                                    </div> 	 
 		                                    <div class="form-group">
 		                                        <div class="col-lg-12" align="center">
-		                                        	<button type="button" style="width: 80px" id="id_btn_actualiza" class="btn btn-primary btn-sm">Actualizar</button>
-		                                        	<button type="button" style="width: 80px" id="id_btn_act_cancelar" class="btn btn-primary btn-sm" data-dismiss="modal">Cancelar</button>
+		                                        	<button type="button" style="width: 80px" id="id_btn_actualiza" class="btn btn-primary btn-sm">Actualiza</button>
+		                                        	<button type="button" style="width: 80px" id="id_btn_act_cancelar" class="btn btn-primary btn-sm" data-dismiss="modal">Cancela</button>
 		                                        </div>
 		                                    </div>   
 			                             </div>
@@ -421,6 +421,16 @@
 		        }
 		    });
 		});		
+		
+		function limpiarFormulario(){	
+			$('#id_reg_nombre').val("");
+			$('#id_reg_dni').val("");
+			$('#id_reg_categoria').val(" ");
+			$('#id_act_nombre').val("");
+			$('#id_act_dni').val("");
+			$('#id_act_categoria').val(" ");
+			$('#id_act_estado').val(" ");
+		}
 	</script>
 
 </body>

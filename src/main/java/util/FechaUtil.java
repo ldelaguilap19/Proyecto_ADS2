@@ -7,6 +7,12 @@ import java.util.Date;
 
 public class FechaUtil {
 
+	
+	public static String getFechaddMMyyyy(Date fecha) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(fecha);
+	}
+	
 	public static Date toFecha(String fecha) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date fec = null;

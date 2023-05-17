@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import dao.EmpleadoDAO;
 import entity.Empleado;
 import entity.Pais;
+import util.FechaUtil;
 import util.MySqlDBConexion;
 
 public class MySqlEmpleadoDAO implements EmpleadoDAO{
@@ -109,7 +110,7 @@ public class MySqlEmpleadoDAO implements EmpleadoDAO{
 			
 			String sql = "SELECT e.*, p.nombre FROM empleado e "
 					+ "inner join pais p on e.idPais = p.idPais "
-					+ "where p.nombre like ?";
+					+ "where e.nombres like ?";
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, filtro);
 
@@ -125,6 +126,7 @@ public class MySqlEmpleadoDAO implements EmpleadoDAO{
 				objEmpleado.setFechaNacimiento(rs.getDate(3));
 				objEmpleado.setEstado(rs.getInt(4));
 				objEmpleado.setFechaRegistro(rs.getTimestamp(5));
+				objEmpleado.setFormateadoFecNac(FechaUtil.getFechaddMMyyyy(rs.getDate(3)));
 				
 				objPais = new Pais();
 				objPais.setIdPais(rs.getInt(6));
@@ -211,7 +213,7 @@ public class MySqlEmpleadoDAO implements EmpleadoDAO{
 			
 			String sql = "SELECT e.*, p.nombre FROM empleado e "
 					+ "inner join pais p on e.idPais = p.idPais "
-					+ "where p.idEmpleado = ?";
+					+ "where e.idEmpleado = ?";
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, idEmpleado);
 

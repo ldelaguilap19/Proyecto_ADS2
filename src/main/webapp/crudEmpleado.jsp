@@ -46,8 +46,9 @@
 					<tr>
 						<th>Código</th>
 						<th>Nombre</th>
-						<th>DNI</th>
-						<th>Categoría</th>
+						<th>Fec Nacimiento</th>
+						<th>País</th>
+						<th>Estado</th>
 						<th></th>
 						<th></th>
 						<th></th>
@@ -67,7 +68,7 @@
 					<div class="modal-content">
 					<div class="modal-header" >
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4><span class="glyphicon glyphicon-ok-sign"></span> Registro de Cliente</h4>
+						<h4><span class="glyphicon glyphicon-ok-sign"></span> Registro de Empleado</h4>
 					</div>
 					<div class="modal-body" >
 						 <div class="panel-group" id="steps">
@@ -83,23 +84,23 @@
 		                                        </div>
 		                                    </div> 	
 											<div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_dni">DNI</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_fecnac">Fecha Nacimiento</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_reg_dni" name="dni" placeholder="Ingrese el DNI" type="text" maxlength="8"/>
+													<input class="form-control" id="id_reg_fecnac" name="fechaNacimiento" type="date" />
 		                                        </div>
 		                                    </div> 	
 			                                <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_categoria">Categoría</label>
+		                                        <label class="col-lg-3 control-label" for="id_reg_pais">País</label>
 		                                        <div class="col-lg-8">
-													<select class="form-control" id="id_reg_categoria" name="categoria">
+													<select class="form-control" id="id_reg_pais" name="pais">
 														<option value=" ">[Seleccione]</option>
 													</select>
 		                                        </div>
 		                                    </div> 	 
 		                                    <div class="form-group">
 		                                        <div class="col-lg-12" align="center">
-		                                        	<button type="button" style="width: 80px" id="id_btn_registra" class="btn btn-primary btn-sm">Registrar</button>
-		                                        	<button type="button" style="width: 80px" id="id_btn_reg_cancelar" class="btn btn-primary btn-sm" data-dismiss="modal">Cancelar</button>
+		                                        	<button type="button" style="width: 80px" id="id_btn_registra" class="btn btn-primary btn-sm">Registra</button>
+		                                        	<button type="button" style="width: 80px" id="id_btn_reg_cancelar" class="btn btn-primary btn-sm" data-dismiss="modal">Cancela</button>
 		                                        </div>
 		                                    </div>   
 			                             </div>
@@ -119,7 +120,7 @@
 					<div class="modal-content">
 					<div class="modal-header" >
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4><span class="glyphicon glyphicon-ok-sign"></span> Actualiza de Cliente</h4>
+						<h4><span class="glyphicon glyphicon-ok-sign"></span> Actualiza Empleado</h4>
 					</div>
 					<div class="modal-body" >
 						 <div class="panel-group" id="steps">
@@ -127,7 +128,7 @@
 			                   		<div id="stepOne" class="panel-collapse collapse in">
 			                   			<form id="id_form_actualiza">
 			                   			<input type="hidden" name="metodo" value="actualiza">
-			                   			<input type="hidden" name="id" >
+			                   			<input type="hidden" name="idEmpleado" id="idEmpleado" >
 			                   			<div class="panel-body">
 			                                <div class="form-group" >
 		                                        <label class="col-lg-3 control-label" for="id_act_nombre">Nombre</label>
@@ -136,15 +137,15 @@
 		                                        </div>
 		                                    </div> 	
 											<div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_dni">DNI</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_fecnac">Fecha Nacimiento</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_dni" name="dni" placeholder="Ingrese el DNI" type="text" maxlength="8"/>
+													<input class="form-control" id="id_act_fecnac" name="fechaNacimiento" type="date" />
 		                                        </div>
-		                                    </div> 	
+		                                    </div> 	 	
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_act_estado">Estado</label>
 		                                        <div class="col-lg-8">
-													<select class="form-control" id="id_act_estado" name="categoria">
+													<select class="form-control" id="id_act_estado" name="estado">
 														<option value=" ">[Seleccione]</option>
 														<option value="1">Activo</option>
 														<option value="0">Inactivo</option>
@@ -152,17 +153,17 @@
 		                                        </div>
 		                                    </div> 	 
 			                                <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_categoria">Categoría</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_pais">País</label>
 		                                        <div class="col-lg-8">
-													<select class="form-control" id="id_act_categoria" name="categoria">
+													<select class="form-control" id="id_act_pais" name="pais">
 														<option value=" ">[Seleccione]</option>
 													</select>
 		                                        </div>
-		                                    </div> 	 
+		                                    </div> 	  
 		                                    <div class="form-group">
 		                                        <div class="col-lg-12" align="center">
-		                                        	<button type="button" style="width: 80px" id="id_btn_actualiza" class="btn btn-primary btn-sm">Registrar</button>
-		                                        	<button type="button" style="width: 80px" id="id_btn_act_cancelar" class="btn btn-primary btn-sm" data-dismiss="modal">Cancelar</button>
+		                                        	<button type="button" style="width: 80px" id="id_btn_actualiza" class="btn btn-primary btn-sm">Actualiza</button>
+		                                        	<button type="button" style="width: 80px" id="id_btn_act_cancelar" class="btn btn-primary btn-sm" data-dismiss="modal">Cancela</button>
 		                                        </div>
 		                                    </div>   
 			                             </div>
@@ -183,7 +184,7 @@
 	<script type="text/javascript">
 		$("#id_btn_filtro").click(function() {
 			var vfiltro = $("#id_filtro").val();
-			$.getJSON("crudCliente", {"metodo": "lista","filtro":vfiltro}, function(data) {
+			$.getJSON("crudEmpleado", {"metodo": "lista","filtro":vfiltro}, function(data) {
 				agregarGrilla(data);
 			});
 		});
@@ -192,7 +193,7 @@
 			 $('#id_table').DataTable().clear();
 			 $('#id_table').DataTable().destroy();
 			 $('#id_table').DataTable({
-					data: lista,
+				 	data: lista,
 					language: IDIOMA,
 					searching: true,
 					ordering: true,
@@ -200,34 +201,55 @@
 					pageLength: 10,
 					lengthChange: false,
 					info:true,
-					scrollY: 305,
+					scrollY: 410,
 			        scroller: {
 			            loadingIndicator: true
 			        },
-					columns:[
-						{data: "idCliente",className:'text-center'},
-						{data: "nombre",className:'text-center'},
-						{data: "dni",className:'text-center'},
-						{data: "categoria.nombre",className:'text-center'},
+					columns:[  
+						{data: "idEmpleado",className:'text-center'},
+						{data: "nombres",className:'text-center'},
+						{data: "formateadoFecNac",className:'text-center'},
+						{data: "pais.nombre",className:'text-center'},
 						{data: function(row, type, val, meta){
-							return '<button type="button" style="width: 90px" class="btn btn-info btn-sm" onClick="verFormularioActualiza(\''+row.idCliente + '\',\''+ row.nombre + '\',\''+ row.dni + '\',\''+ row.estado + '\',\''+ row.categoria.idCategoria +'\');">Editar</button>';
-						} ,className:'text-center'},
+							return row.estado == 1 ? "Activo" : "Inactivo";  
+						},className:'text-center'},
 						{data: function(row, type, val, meta){
-							return '<button type="button" style="width: 90px" class="btn btn-success btn-sm">Activo</button>';
-						} ,className:'text-center'},
+							return '<button type="button" class="btn btn-info btn-sm" onClick="verFormularioActualiza(\'' + row.idEmpleado + '\',\'' +  row.nombres   + '\',\'' +  row.formateadoFecNac + '\',\'' +  row.estado + '\',\'' +  row.pais.idPais +'\');">Editar</button>';  
+						},className:'text-center'},
 						{data: function(row, type, val, meta){
-							return '<button type="button" style="width: 90px" class="btn btn-danger btn-sm" onClick="eliminacionFisica(\''+ row.idCliente +'\');" >Elimina</button>';
-						} ,className:'text-center'},
+							return '<button type="button" class="btn btn-warning btn-sm" onClick="eliminacionLogica(\'' + row.idEmpleado +'\');" >E.Lógica</button>';
+						},className:'text-center'},
+						{data: function(row, type, val, meta){
+							return '<button type="button" class="btn btn-danger btn-sm"  onClick="eliminacionFisica(\'' + row.idEmpleado +'\');" >E.Física</button>';
+						},className:'text-center'},
 					]                                     
 			    });
 		}
 		
-		
-		function eliminacionFisica(idCliente){
+		function eliminacionLogica(idEmpleado){
 			 $.ajax({
 		          type: "POST",
-		          url: "crudCliente", 
-		          data: {"metodo": "eFisica", "idCliente":idCliente},
+		          url: "crudEmpleado", 
+		          data: {"metodo":"eLogica", "idEmpleado":idEmpleado},
+		          success: function(data){
+		        	  agregarGrilla(data.datos);
+		          },
+		          error: function(){
+		        	  mostrarMensaje(MSG_ERROR);
+		          }
+		    });
+		}
+		
+		function eliminacionFisica(idEmpleado){	
+			var array = [idEmpleado];
+			mostrarMensajeConfirmacion(MSG_ELIMINAR, accionEliminacionFisica,null,array);
+		}
+		
+		function accionEliminacionFisica(array){
+			 $.ajax({
+		          type: "POST",
+		          url: "crudEmpleado", 
+		          data: {"metodo": "eFisica", "idEmpleado":array[0]},
 		          success: function(data){
  		        	  mostrarMensaje(data.mensaje);
  		        	  agregarGrilla(data.datos);
@@ -238,37 +260,173 @@
 		        });
 		}
 		
-		function verFormularioActualiza(idCliente, nombre, dni, estado, idCategoria){
+		function verFormularioActualiza(idEmpleado, nombre, fecnac, estado, pais){
 			console.log(">>> verFormularioActualiza");
 			$("#id_div_modal_actualiza").modal("show");
-			$("#id").val(idCliente);
+			$("#idEmpleado").val(idEmpleado);
 			$("#id_act_nombre").val(nombre);
-			$("#id_act_dni").val(dni);
+			$("#id_act_fecnac").val(fecnac);
 			$("#id_act_estado").val(estado);
-			$("#id_act_categoria").val(idCategoria);
+			$("#id_act_pais").val(pais);
 		}
 		
-		$.getJSON("cargaCategoria", {}, function (data){
+		$.getJSON("cargaPais", {}, function (data){
 			$.each(data, function(index, item){
-				$("#id_reg_categoria").append("<option value=" +  item.idCategoria +" >" +  item.nombre+ "</option>");
-				$("#id_act_categoria").append("<option value=" +  item.idCategoria +" >" +  item.nombre+ "</option>");
+				$("#id_reg_pais").append("<option value=" +  item.idPais +" >" +  item.nombre+ "</option>");
+				$("#id_act_pais").append("<option value=" +  item.idPais +" >" +  item.nombre+ "</option>");
 			});	
 		});	
 
 		$("#id_btn_registra").click(function(){
-	        $.ajax({
-		          type: "POST",
-		          url: "crudCliente", 
-		          data: $('#id_form_registra').serialize(),
-		          success: function(data){
-		        	  mostrarMensaje(data.mensaje);
- 		        	  agregarGrilla(data.datos);
-		          },
-		          error: function(){
-		        	  mostrarMensaje(MSG_ERROR);
-		          }
-	        });
-		});		        
+			var validator = $('#id_form_registra').data('bootstrapValidator');
+		    validator.validate();
+			
+		    if (validator.isValid()) {
+		        $.ajax({
+			          type: "POST",
+			          url: "crudEmpleado", 
+			          data: $('#id_form_registra').serialize(),
+			          success: function(data){
+			        	  mostrarMensaje(data.mensaje);
+	 		        	  agregarGrilla(data.datos);
+	 		        	  validator.resetForm();
+			        	  $('#id_div_modal_registra').modal("hide");
+			        	  limpiarFormulario();
+			          },
+			          error: function(){
+			        	  mostrarMensaje(MSG_ERROR);
+			          }
+		        });
+		    } 
+		});	
+		
+		$("#id_btn_actualiza").click(function() {
+			var validator = $('#id_form_actualiza').data('bootstrapValidator');
+		    validator.validate();
+			
+		    if (validator.isValid()) {
+		        $.ajax({
+			          type: "POST",
+			          url: "crudEmpleado", 
+			          data: $('#id_form_actualiza').serialize(),
+			          success: function(data){
+			        	  mostrarMensaje(data.mensaje);
+			        	  agregarGrilla(data.datos);
+			        	  validator.resetForm();
+			        	  $('#id_div_modal_actualiza').modal("hide");
+			        	  limpiarFormulario();
+			          },
+			          error: function(){
+			        	  mostrarMensaje(MSG_ERROR);
+			          }
+			    });
+		    }
+		});
+		
+		$(document).ready(function() {
+		    $('#id_form_registra').bootstrapValidator({
+		        message: 'This value is not valid',
+		        feedbackIcons: {
+		            valid: 'glyphicon glyphicon-ok',
+		            invalid: 'glyphicon glyphicon-remove',
+		            validating: 'glyphicon glyphicon-refresh'
+		        },
+		        
+		        fields:{
+		        	nombre : {  
+		        		selector: "#id_reg_nombre",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'El nombre es requerido'
+		                    },
+		                    stringLength: {
+		                        min: 3,
+		                        max: 30,
+		                        message: 'El nombre tiene de 3 a 30 caracteres'
+		                    },
+		        		}
+		        	},
+		        	fechaNacimiento : {
+		        		selector: "#id_reg_fecnac",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'La fecha de nacimiento es requerida'
+		                    },
+		        		}
+		        	},
+		        	pais : {
+		        		selector: "#id_reg_pais",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'El país es requerido'
+		                    },
+		        		}
+		        	},        	
+		        }
+		    });
+		});
+		
+		$(document).ready(function() {
+		    $('#id_form_actualiza').bootstrapValidator({
+		        message: 'This value is not valid',
+		        feedbackIcons: {
+		            valid: 'glyphicon glyphicon-ok',
+		            invalid: 'glyphicon glyphicon-remove',
+		            validating: 'glyphicon glyphicon-refresh'
+		        },
+		        
+		        fields:{
+		        	nombre : {  
+		        		selector: "#id_act_nombre",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'El nombre es requerido'
+		                    },
+		                    stringLength: {
+		                        min: 3,
+		                        max: 30,
+		                        message: 'El nombre tiene de 3 a 30 caracteres'
+		                    },
+		        		}
+		        	},
+		        	fechaNacimiento : {
+		        		selector: "#id_act_fecnac",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'La fecha de nacimiento es requerida'
+		                    },
+		        		}
+		        	},
+		        	estado : {
+		        		selector: "#id_act_estado",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'El estado es requerido'
+		                    },
+		        		}
+		        	},     
+		        	pais : {
+		        		selector: "#id_act_pais",
+		        		validators : {
+		        			notEmpty: {
+		                        message: 'El país es requerido'
+		                    },
+		        		}
+		        	},       	
+		        }
+		    });
+		});		
+		
+		function limpiarFormulario(){	
+			$('#id_reg_nombre').val("");
+			$('#id_reg_fecnac').val("");
+			$('#id_reg_pais').val(" ");
+			$('#id_act_nombre').val("");
+			$('#id_act_fecnac').val("");
+			$('#id_act_pais').val(" ");
+			$('#id_act_estado').val(" ");
+		}
+		
 	</script>
 	
 </body>

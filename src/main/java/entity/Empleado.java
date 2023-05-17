@@ -16,8 +16,7 @@ public class Empleado {
 	private int estado;
 	private Timestamp fechaRegistro;
 	private Pais pais;
-	
-	
+	private String formateadoFecNac;
 	
 	
 	
