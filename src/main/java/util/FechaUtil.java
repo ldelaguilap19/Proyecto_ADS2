@@ -8,8 +8,8 @@ import java.util.Date;
 public class FechaUtil {
 
 	
-	public static String getFechaddMMyyyy(Date fecha) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	public static String getFechaFormateadaYYYYMMdd(java.sql.Date fecha) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //Brinda formato a la fecha
 		return sdf.format(fecha);
 	}
 	

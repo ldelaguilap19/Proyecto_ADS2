@@ -126,7 +126,7 @@ public class MySqlEmpleadoDAO implements EmpleadoDAO{
 				objEmpleado.setFechaNacimiento(rs.getDate(3));
 				objEmpleado.setEstado(rs.getInt(4));
 				objEmpleado.setFechaRegistro(rs.getTimestamp(5));
-				objEmpleado.setFormateadoFecNac(FechaUtil.getFechaddMMyyyy(rs.getDate(3)));
+				objEmpleado.setFormateadoFecNac(FechaUtil.getFechaFormateadaYYYYMMdd(rs.getDate(3)));
 				
 				objPais = new Pais();
 				objPais.setIdPais(rs.getInt(6));
