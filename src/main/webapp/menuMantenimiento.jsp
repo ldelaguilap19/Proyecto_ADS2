@@ -16,59 +16,37 @@
 <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/dataTables.bootstrap.min.css"/>
 
-<title>CRUD Empleado</title>
+<title>MENÚ</title>
 </head>
 <body>
 
 
 	<div class="container">
-		<h1>CRUD Empleado</h1>
+		<h1>MENÚ</h1>
 
 		<div class="row" style="margin-top: 5%">
-			<div class="col-md-3">
-				<label class="control-label" for="id_filtro">Nombres</label> 
+			
+			<div class="col-md-1"  style="width: 60%">
+				<button type="button" class="btn btn-primary"  data-toggle='modal' data-target="#id_div_modal_registra" >REGISTRAR REQUERIMIENTO (MOD. DEL PAC)</button>
 			</div>	
-			<div class="col-md-6">
-				<input	class="form-control" type="text" id="id_filtro" placeholder="Ingrese el nombre">
+			<div class="col-md-1"  style="width: 60%">
+				<button type="button" class="btn btn-primary" id="id_btn_filtro">BUZÓN DE TRÁMITES</button>
 			</div>	
-			<div class="col-md-1">
-				<button type="button" class="btn btn-primary" id="id_btn_filtro">Filtro</button>
-			</div>
-			<div class="col-md-1">
-				<button type="button" class="btn btn-primary" data-toggle='modal' data-target="#id_div_modal_registra">Registra</button>
+			<div class="col-md-1"  style="width: 60%">
+				<button type="button" class="btn btn-primary" id="id_btn_filtro">CONSULTA DE TRÁMITE DOCUMENTARIO</button>
 			</div>	
 		</div>
 
 
-		<div class="row" style="margin-top: 4%">
-			<table id="id_table" class="table table-bordered table-hover table-condensed" >
-				<thead style='background-color:#337ab7; color:white'>
-					<tr>
-						<th>Código</th>
-						<th>Nombre</th>
-						<th>Fec Nacimiento</th>
-						<th>País</th>
-						<th>Estado</th>
-						<th></th>
-						<th></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
 
-
-				</tbody>
-			</table>
-
-		</div>
 		
 		<!-- INICIO MODAL DE REGISTRO -->
-		<div class="modal fade" id="id_div_modal_registra" >
-			<div class="modal-dialog" style="width: 60%">
+		<div class="modal fade" id="id_div_modal_registra">
+			<div class="modal-dialog" style="width: 60%" style="heigth:80%"  >
 					<div class="modal-content">
 					<div class="modal-header" >
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4><span class="glyphicon glyphicon-ok-sign"></span> Registro de Empleado</h4>
+						<h4><span class="glyphicon glyphicon-ok-sign"></span>REGISTRAR REQUERIMIENTO (MOD. DEL PAC)</h4>
 					</div>
 					<div class="modal-body" >
 						 <div class="panel-group" id="steps">
@@ -77,26 +55,58 @@
 			                   			<form id="id_form_registra">
 			                   			<input type="hidden" name="metodo" value="inserta">
 			                   			<div class="panel-body">
-			                                <div class="form-group" >
-		                                        <label class="col-lg-3 control-label" for="id_reg_nombre">Nombre</label>
+			                   			<div class="form-group">
+		                                        <label class="col-lg-3 control-label" for="id_reg_categoria">Tipo de documento</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="100"/>
-		                                        </div>
-		                                    </div> 	
-											<div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_fecnac">Fecha Nacimiento</label>
-		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_reg_fecnac" name="fechaNacimiento" type="date" />
-		                                        </div>
-		                                    </div> 	
-			                                <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_reg_pais">País</label>
-		                                        <div class="col-lg-8">
-													<select class="form-control" id="id_reg_pais" name="pais">
+													<select class="form-control" id="id_reg_categoria" name="categoria">
 														<option value=" ">[Seleccione]</option>
 													</select>
 		                                        </div>
-		                                    </div> 	 
+		                                    </div> 	
+			                                <div class="form-group" >
+		                                        <label class="col-lg-3 control-label" for="id_reg_nombre">N° de Expediente</label>
+		                                        <div class="col-lg-8">
+													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="100"/>
+		                                        </div>
+		                                    </div> 
+		                                    <div class="form-group" >
+		                                        <label class="col-lg-3 control-label" for="id_reg_nombre">Asunto</label>
+		                                        <div class="col-lg-8">
+													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="100"/>
+		                                        </div>
+		                                    </div>
+		                                    <div class="form-group" >
+		                                        <label class="col-lg-3 control-label" for="id_reg_nombre">N° de Folios</label>
+		                                        <div class="col-lg-8">
+													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="100"/>
+		                                        </div>
+		                                    </div> 
+		                                    <div class="form-group" >
+		                                        <label class="col-lg-3 control-label" for="id_reg_nombre">Área usuaria</label>
+		                                        <div class="col-lg-8">
+													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="100"/>
+		                                        </div>
+		                                    </div>  
+		                                      <div class="form-group" >
+		                                        <label class="col-lg-3 control-label" for="id_reg_nombre">Nombre de Responsable</label>
+		                                        <div class="col-lg-8">
+													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="100"/>
+		                                        </div>
+		                                    </div>	
+		                                      <div class="form-group" >
+		                                        <label class="col-lg-3 control-label" for="id_reg_nombre">Cargo de Responsable</label>
+		                                        <div class="col-lg-8">
+													<input class="form-control" id="id_reg_nombre" name="nombre" placeholder="Ingrese el Nombre" type="text" maxlength="100"/>
+		                                        </div>
+		                                    </div>
+		                                      </div>	
+		                                     <label class="col-lg-3 control-label" for="id_reg_categoria">Derivar a (Dependencia)</label>
+		                                        <div class="col-lg-8">
+													<select class="form-control" id="id_reg_categoria" name="categoria">
+														<option value=" ">[Seleccione]</option>
+													</select>
+		                                        </div>
+												 
 		                                    <div class="form-group">
 		                                        <div class="col-lg-12" align="center">
 		                                        	<button type="button" style="width: 80px" id="id_btn_registra" class="btn btn-primary btn-sm">Registra</button>
@@ -120,7 +130,7 @@
 					<div class="modal-content">
 					<div class="modal-header" >
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4><span class="glyphicon glyphicon-ok-sign"></span> Actualiza Empleado</h4>
+						<h4><span class="glyphicon glyphicon-ok-sign"></span> Actualiza de Cliente</h4>
 					</div>
 					<div class="modal-body" >
 						 <div class="panel-group" id="steps">
@@ -128,7 +138,7 @@
 			                   		<div id="stepOne" class="panel-collapse collapse in">
 			                   			<form id="id_form_actualiza">
 			                   			<input type="hidden" name="metodo" value="actualiza">
-			                   			<input type="hidden" name="idEmpleado" id="idEmpleado" >
+			                   			<input type="hidden" name="idCliente" id="idCliente">
 			                   			<div class="panel-body">
 			                                <div class="form-group" >
 		                                        <label class="col-lg-3 control-label" for="id_act_nombre">Nombre</label>
@@ -137,11 +147,11 @@
 		                                        </div>
 		                                    </div> 	
 											<div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_fecnac">Fecha Nacimiento</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_dni">DNI</label>
 		                                        <div class="col-lg-8">
-													<input class="form-control" id="id_act_fecnac" name="fechaNacimiento" type="date" />
+													<input class="form-control" id="id_act_dni" name="dni" placeholder="Ingrese el DNI" type="text" maxlength="8"/>
 		                                        </div>
-		                                    </div> 	 	
+		                                    </div> 	
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_act_estado">Estado</label>
 		                                        <div class="col-lg-8">
@@ -153,19 +163,26 @@
 		                                        </div>
 		                                    </div> 	 
 			                                <div class="form-group">
-		                                        <label class="col-lg-3 control-label" for="id_act_pais">País</label>
+		                                        <label class="col-lg-3 control-label" for="id_act_categoria">Categoría</label>
 		                                        <div class="col-lg-8">
-													<select class="form-control" id="id_act_pais" name="pais">
+													<select class="form-control" id="id_act_categoria" name="categoria">
 														<option value=" ">[Seleccione]</option>
 													</select>
 		                                        </div>
-		                                    </div> 	  
+		                                    </div> 	 
 		                                    <div class="form-group">
 		                                        <div class="col-lg-12" align="center">
 		                                        	<button type="button" style="width: 80px" id="id_btn_actualiza" class="btn btn-primary btn-sm">Actualiza</button>
+		                                        	
 		                                        	<button type="button" style="width: 80px" id="id_btn_act_cancelar" class="btn btn-primary btn-sm" data-dismiss="modal">Cancela</button>
+		                                        	
+		                                  
 		                                        </div>
-		                                    </div>   
+		                                    </div>
+		                                    <div class="col-lg-12" align="right">
+		                                    	<button type="button" style="width: 80px" id="id_btn_actualiza" class="btn btn-primary btn-sm">Seleccionar archivo</button>
+		                                    </div>
+		                                       
 			                             </div>
 			                             </form>
 			                        </div>
@@ -177,14 +194,13 @@
 		</div>	
 		<!-- FIN MODAL DE ACTUALIZA -->
 		
-		 
 	</div>
 
 
 	<script type="text/javascript">
 		$("#id_btn_filtro").click(function() {
 			var vfiltro = $("#id_filtro").val();
-			$.getJSON("crudEmpleado", {"metodo": "lista","filtro":vfiltro}, function(data) {
+			$.getJSON("crudCliente", {"metodo":"lista","filtro":vfiltro}, function(data) {
 				agregarGrilla(data);
 			});
 		});
@@ -193,7 +209,7 @@
 			 $('#id_table').DataTable().clear();
 			 $('#id_table').DataTable().destroy();
 			 $('#id_table').DataTable({
-				 	data: lista,
+					data: lista,
 					language: IDIOMA,
 					searching: true,
 					ordering: true,
@@ -201,37 +217,60 @@
 					pageLength: 10,
 					lengthChange: false,
 					info:true,
-					scrollY: 410,
+					scrollY: 305,
 			        scroller: {
 			            loadingIndicator: true
 			        },
-					columns:[  
-						{data: "idEmpleado",className:'text-center'},
-						{data: "nombres",className:'text-center'},
-						{data: "formateadoFecNac",className:'text-center'},
-						{data: "pais.nombre",className:'text-center'},
+					columns:[
+						{data: "idCliente",className:'text-center'},
+						{data: "nombre",className:'text-center'},
+						{data: "dni",className:'text-center'},
 						{data: function(row, type, val, meta){
 							return row.estado == 1 ? "Activo" : "Inactivo";  
 						},className:'text-center'},
+						{data: "categoria.nombre",className:'text-center'},
 						{data: function(row, type, val, meta){
-							return '<button type="button" class="btn btn-info btn-sm" onClick="verFormularioActualiza(\'' + row.idEmpleado + '\',\'' +  row.nombres   + '\',\'' +  row.formateadoFecNac + '\',\'' +  row.estado + '\',\'' +  row.pais.idPais +'\');">Editar</button>';  
+							return '<button type="button" class="btn btn-info btn-sm" onClick="verFormularioActualiza(\'' + row.idCliente + '\',\'' +  row.nombre   + '\',\'' +  row.dni + '\',\'' +  row.estado + '\',\'' +  row.categoria.idCategoria +'\');">Editar</button>';  
 						},className:'text-center'},
 						{data: function(row, type, val, meta){
-							return '<button type="button" class="btn btn-warning btn-sm" onClick="eliminacionLogica(\'' + row.idEmpleado +'\');" >E.Lógica</button>';
+							return '<button type="button" class="btn btn-warning btn-sm" onClick="eliminacionLogica(\'' + row.idCliente +'\');" >E.Lógica</button>';
 						},className:'text-center'},
 						{data: function(row, type, val, meta){
-							return '<button type="button" class="btn btn-danger btn-sm"  onClick="eliminacionFisica(\'' + row.idEmpleado +'\');" >E.Física</button>';
+							return '<button type="button" class="btn btn-danger btn-sm"  onClick="eliminacionFisica(\'' + row.idCliente +'\');" >E.Física</button>';
 						},className:'text-center'},
 					]                                     
 			    });
 		}
 		
-		function eliminacionLogica(idEmpleado){
+		function verFormularioActualiza(idCliente, nombre, dni, estado, categoria){
+			console.log(">> verFormularioActualiza >> " + idCliente);
+			$("#id_div_modal_actualiza").modal("show");
+			$("#idCliente").val(idCliente);
+			$("#id_act_nombre").val(nombre);
+			$("#id_act_dni").val(dni);
+			$("#id_act_estado").val(estado);
+			$("#id_act_categoria").val(categoria);
+		}
+		
+		$.getJSON("cargaCategoria",{}, function (data){
+			$.each(data, function(index, item){
+				$("#id_reg_categoria").append("<option value='"+ item.idCategoria +"'>"+ item.nombre+"</option>");
+				$("#id_act_categoria").append("<option value='"+ item.idCategoria +"'>"+ item.nombre+"</option>");
+			})
+		});
+		
+		function eliminacionFisica(idCliente){	
+			var array = [idCliente];
+			mostrarMensajeConfirmacion(MSG_ELIMINAR, accionEliminacionFisica,null,array);
+		}
+
+		function accionEliminacionFisica(array){
 			 $.ajax({
 		          type: "POST",
-		          url: "crudEmpleado", 
-		          data: {"metodo":"eLogica", "idEmpleado":idEmpleado},
+		          url: "crudCliente", 
+		          data: {"metodo":"eFisica", "idCliente":array[0]},
 		          success: function(data){
+		        	  mostrarMensaje(data.mensaje);
 		        	  agregarGrilla(data.datos);
 		          },
 		          error: function(){
@@ -240,65 +279,27 @@
 		    });
 		}
 		
-		function eliminacionFisica(idEmpleado){	
-			var array = [idEmpleado];
-			mostrarMensajeConfirmacion(MSG_ELIMINAR, accionEliminacionFisica,null,array);
-		}
-		
-		function accionEliminacionFisica(array){
-			 $.ajax({
-		          type: "POST",
-		          url: "crudEmpleado", 
-		          data: {"metodo": "eFisica", "idEmpleado":array[0]},
-		          success: function(data){
- 		        	  mostrarMensaje(data.mensaje);
- 		        	  agregarGrilla(data.datos);
-		          },
-		          error: function(){
-		        	  mostrarMensaje(MSG_ERROR);
-		          }
-		        });
-		}
-		
-		function verFormularioActualiza(idEmpleado, nombre, fecnac, estado, pais){
-			console.log(">>> verFormularioActualiza");
-			$("#id_div_modal_actualiza").modal("show");
-			$("#idEmpleado").val(idEmpleado);
-			$("#id_act_nombre").val(nombre);
-			$("#id_act_fecnac").val(fecnac);
-			$("#id_act_estado").val(estado);
-			$("#id_act_pais").val(pais);
-		}
-		
-		$.getJSON("cargaPais", {}, function (data){
-			$.each(data, function(index, item){
-				$("#id_reg_pais").append("<option value=" +  item.idPais +" >" +  item.nombre+ "</option>");
-				$("#id_act_pais").append("<option value=" +  item.idPais +" >" +  item.nombre+ "</option>");			
-			});	
-		});	
-
-		$("#id_btn_registra").click(function(){
+		$("#id_btn_registra").click(function() {
 			var validator = $('#id_form_registra').data('bootstrapValidator');
 		    validator.validate();
 			
 		    if (validator.isValid()) {
 		        $.ajax({
 			          type: "POST",
-			          url: "crudEmpleado", 
+			          url: "crudCliente", 
 			          data: $('#id_form_registra').serialize(),
 			          success: function(data){
 			        	  mostrarMensaje(data.mensaje);
-	 		        	  agregarGrilla(data.datos);
-	 		        	  validator.resetForm();
+			        	  agregarGrilla(data.datos);
+			        	  validator.resetForm();
 			        	  $('#id_div_modal_registra').modal("hide");
-			        	  limpiarFormulario();
 			          },
 			          error: function(){
 			        	  mostrarMensaje(MSG_ERROR);
 			          }
-		        });
-		    } 
-		});	
+			    });
+		    }
+		});
 		
 		$("#id_btn_actualiza").click(function() {
 			var validator = $('#id_form_actualiza').data('bootstrapValidator');
@@ -307,14 +308,13 @@
 		    if (validator.isValid()) {
 		        $.ajax({
 			          type: "POST",
-			          url: "crudEmpleado", 
+			          url: "crudCliente", 
 			          data: $('#id_form_actualiza').serialize(),
 			          success: function(data){
 			        	  mostrarMensaje(data.mensaje);
 			        	  agregarGrilla(data.datos);
 			        	  validator.resetForm();
 			        	  $('#id_div_modal_actualiza').modal("hide");
-			        	  limpiarFormulario();
 			          },
 			          error: function(){
 			        	  mostrarMensaje(MSG_ERROR);
@@ -322,6 +322,21 @@
 			    });
 		    }
 		});
+		
+		
+		function eliminacionLogica(idCliente){
+			 $.ajax({
+		          type: "POST",
+		          url: "crudCliente", 
+		          data: {"metodo":"eLogica", "idCliente":idCliente},
+		          success: function(data){
+		        	  agregarGrilla(data.datos);
+		          },
+		          error: function(){
+		        	  mostrarMensaje(MSG_ERROR);
+		          }
+		    });
+		}
 		
 		$(document).ready(function() {
 		    $('#id_form_registra').bootstrapValidator({
@@ -346,19 +361,23 @@
 		                    },
 		        		}
 		        	},
-		        	fechaNacimiento : {
-		        		selector: "#id_reg_fecnac",
+		        	dni : {
+		        		selector: "#id_reg_dni",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'La fecha de nacimiento es requerida'
+		                        message: 'El dni es requerido'
+		                    },
+		                    regexp: {
+		                        regexp: /^[0-9]{8}$/,
+		                        message: 'El dni tiene 8 dígitos'
 		                    },
 		        		}
 		        	},
-		        	pais : {
-		        		selector: "#id_reg_pais",
+		        	categoria : {
+		        		selector: "#id_reg_categoria",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'El país es requerido'
+		                        message: 'La categoría es requerida'
 		                    },
 		        		}
 		        	},        	
@@ -389,11 +408,15 @@
 		                    },
 		        		}
 		        	},
-		        	fechaNacimiento : {
-		        		selector: "#id_act_fecnac",
+		        	dni : {
+		        		selector: "#id_act_dni",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'La fecha de nacimiento es requerida'
+		                        message: 'El dni es requerido'
+		                    },
+		                    regexp: {
+		                        regexp: /^[0-9]{8}$/,
+		                        message: 'El dni tiene 8 dígitos'
 		                    },
 		        		}
 		        	},
@@ -405,36 +428,31 @@
 		                    },
 		        		}
 		        	},     
-		        	pais : {
-		        		selector: "#id_act_pais",
+		        	categoria : {
+		        		selector: "#id_act_categoria",
 		        		validators : {
 		        			notEmpty: {
-		                        message: 'El país es requerido'
+		                        message: 'La categoría es requerida'
 		                    },
 		        		}
-		        	},       	
+		        	},        	
 		        }
 		    });
 		});		
 		
 		function limpiarFormulario(){	
 			$('#id_reg_nombre').val("");
-			$('#id_reg_fecnac').val("");
-			$('#id_reg_pais').val(" ");
+			$('#id_reg_dni').val("");
+			$('#id_reg_categoria').val(" ");
 			$('#id_act_nombre').val("");
-			$('#id_act_fecnac').val("");
-			$('#id_act_pais').val(" ");
+			$('#id_act_dni').val("");
+			$('#id_act_categoria').val(" ");
 			$('#id_act_estado').val(" ");
 		}
-		
 	</script>
-	
+
 </body>
 </html>
-
-
-
-
 
 
 

@@ -32,7 +32,7 @@
 				<input	class="form-control" type="text" id="id_filtro" placeholder="Ingrese el nombre">
 			</div>	
 			<div class="col-md-1">
-				<button type="button" class="btn btn-primary" id="id_btn_filtro">Filtra</button>
+				<button type="button" class="btn btn-primary" id="id_btn_filtro">Filtro</button>
 			</div>	
 			<div class="col-md-1">
 				<button type="button" class="btn btn-primary"  data-toggle='modal' data-target="#id_div_modal_registra" >Registra</button>
